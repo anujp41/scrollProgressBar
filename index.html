@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    html {
+      overflow: hidden;
+    }
+    body {
+      margin: 0;
+    }
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+    }
+    .flex-container > section {
+      height: 100vh;
+      border: 2px solid greenyellow;
+    }
+    p {
+      font-size: 2em;
+    }
+    aside {
+      height: 100vh;
+      width: 10px;
+      /* background-color: blue; */
+      margin: 0 5px 0 10px;
+    }
+    aside > .progress {
+      height: 0%;
+      background-color: #50abe0;
+    }
+    .left {
+      flex: 1;
+      text-align: center;
+    }
+    .mid {
+      flex: 5;
+      overflow: auto;
+      margin: 0;
+    }
+    /* hides scroll bar when scrolling */
+    .mid::-webkit-scrollbar {
+      display: none;
+    }
+    .right {
+      flex: 1.5;
+      text-align: right;
+      padding-right: 20px;
+    }
+  </style>
+  <body>
+    <div class="flex-container">
+      <section class="left">
+        <h1>Hello</h1>
+      </section>
+      <section class="mid">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nam,
+          ipsa harum voluptatibus perferendis eveniet? Aspernatur vitae ea,
+          molestias optio autem veniam repudiandae soluta ratione, accusamus
+          fugit quas temporibus minima?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nam,
+          ipsa harum voluptatibus perferendis eveniet? Aspernatur vitae ea,
+          molestias optio autem veniam repudiandae soluta ratione, accusamus
+          fugit quas temporibus minima?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nam,
+          ipsa harum voluptatibus perferendis eveniet? Aspernatur vitae ea,
+          molestias optio autem veniam repudiandae soluta ratione, accusamus
+          fugit quas temporibus minima?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nam,
+          ipsa harum voluptatibus perferendis eveniet? Aspernatur vitae ea,
+          molestias optio autem veniam repudiandae soluta ratione, accusamus
+          fugit quas temporibus minima?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nam,
+          ipsa harum voluptatibus perferendis eveniet? Aspernatur vitae ea,
+          molestias optio autem veniam repudiandae soluta ratione, accusamus
+          fugit quas temporibus minima?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nam,
+          ipsa harum voluptatibus perferendis eveniet? Aspernatur vitae ea,
+          molestias optio autem veniam repudiandae soluta ratione, accusamus
+          fugit quas temporibus minima?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nam,
+          ipsa harum voluptatibus perferendis eveniet? Aspernatur vitae ea,
+          molestias optio autem veniam repudiandae soluta ratione, accusamus
+          fugit quas temporibus minima?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nam,
+          ipsa harum voluptatibus perferendis eveniet? Aspernatur vitae ea,
+          molestias optio autem veniam repudiandae soluta ratione, accusamus
+          fugit quas temporibus minima?
+        </p>
+      </section>
+      <aside>
+        <div class="progress"></div>
+      </aside>
+      <section class="right">
+        <h4>Hello</h4>
+        <h4>Hello</h4>
+        <h4>Hello</h4>
+        <h4>Hello</h4>
+        <h4>Hello</h4>
+      </section>
+    </div>
+    <script>
+      const windowHeight = window.innerHeight;
+      const textBox = document.querySelector('.mid');
+      const textTotalHeight = textBox.scrollHeight; //gets total height of text area including parts beneath the screen
+      const progressBar = document.querySelector('.progress');
+      textBox.onscroll = colorProgress;
+
+      function colorProgress() {
+        const scrolledHeight = textBox.scrollTop;
+        const denominator = textTotalHeight - windowHeight;
+        const percentSeen = Math.round((scrolledHeight / denominator) * 100);
+        progressBar.style.height = `${percentSeen}%`;
+      }
+    </script>
+  </body>
+</html>
