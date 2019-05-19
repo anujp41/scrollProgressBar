@@ -1,0 +1,1 @@
+Pure JS implementation with HTML and CSS of a progress bar (progress bar is not the HTML native element) that is shaded as user scroll the content on the page. For live example, please [click](https://anujp41.github.io/scrollProgressBar/) here.
